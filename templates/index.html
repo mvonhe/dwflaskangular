@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 	<!--dynamic version-->
-	<head ng-app "myapp">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+	<head>
+		<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
 	</head>
 	<body>
-		<div ng-controller="myController">
+		<div ng-app="" ng-controller="customersController">
 			<h1>Hello Angular! (v0.0.1.0)</h1>
 			<form novalidate>
 				<input type="text" ng-model="userinput">
 				<button ng-click="submit()">Submit</button>			
 			</form><br><br>		
+			<p>Uppercased: {{ uppercased }}</p>
 		</div>
-		<p>Uppercased: {{ uppercased }}</p>
+		
 		<script>
-			alert("2");
-			var serverUrl = "http://rest-angular989.mybluemix.net/";
-			var serverUrl2= "http://localhost:8080/";
-			function myController($scope, $http) {
-				alert("3");
-				$scope.submit = function() {
-					alert("1");
-					$http.get(encodeURI(serverUrl2 + "?userinput=" + $scope.userinput))
+		function customersController($scope, $http) {
+			$scope.submit = function() {
+				var serverUrl = "http://hello-py-flask.mybluemix.net/";
+				$http.get(encodeURI(serverUrl + "?userinput=" + $scope.userinput))
 						.success(function(response, data, status) {
 							$scope.uppercased = response;
-							alert(response);
-						}}.error(function(response, data, status) {
-							alert("error" + response + ":" + data + ":" + status);							
-						});			
-				};	
+						}).error(
+								function(response, data, status) {
+									alert("error" + response + ":" + data + ":"
+											+ status);
+								});
+
 			};
+
+		}
 		</script>
 	</body>
 </html>
