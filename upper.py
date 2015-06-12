@@ -1,3 +1,4 @@
+"""Cloud Foundry test"""
 from flask import Flask, render_template, request
 import os
 
@@ -13,12 +14,7 @@ def display_template():
 	if "userinput" in request.args:
 		return request.args["userinput"].upper()
 	else: 			
-		return render_template('index.html')
-																																																																																																																																																		
-#@app.route('/input', methods=['POST'])
-#def upperc():
-#	input=request.form.projectFilePath
-#	return input.upper()	
+		return render_template('index.html')	
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=port, debug=True)
