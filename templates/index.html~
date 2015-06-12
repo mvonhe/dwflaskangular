@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head ng-app "myapp">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+<html lang="en" >
+	<!--dynamic version-->
+	<head>
+		<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
 	</head>
 	<body>
-		<div ng-controller="myController">
-			<h1>Hello Angular! (v0.0.1.0)</h1>
+		<div ng-app="" ng-controller="customersController">
+			<h1>Hello Angular! (v0.0.2.0)</h1>
 			<form novalidate>
 				<input type="text" ng-model="userinput">
 				<button ng-click="submit()">Submit</button>			
 			</form><br><br>		
+			<p>Uppercased: {{ uppercased }}</p>
 		</div>
-		<p>Uppercased: {{ uppercased }}</p>
+		
 		<script>
-			alert("2");
-			var serverUrl = "http://rest-angular989.mybluemix.net/";
-			var serverUrl2= "http://localhost:8080/";
-			function myController($scope, $http) {
-				alert("3");
-				$scope.submit = function() {
-					alert("1");
-					$http.get(encodeURI(serverUrl2 + "?userinput=" + $scope.userinput))
+		alert("alert0");
+		function customersController($scope, $http) {
+			alert("alert1");
+			$scope.submit = function() {
+				alert("alert2");
+				//var serverUrl = "http://hello-py-flask.mybluemix.net/";
+				var serverUrl= "localhost:8080";
+				$http.get(encodeURI(serverUrl + "?userinput=" + $scope.userinput))
 						.success(function(response, data, status) {
 							$scope.uppercased = response;
-							alert(response);
-						}}.error(function(response, data, status) {
-							alert("error" + response + ":" + data + ":" + status);							
-						});			
-				};	
+						}).error(
+								function(response, data, status) {
+									alert("error" + response + ":" + data + ":"
+											+ status);
+								});
+				alert("alert3");
+
 			};
+
+		}
 		</script>
 	</body>
 </html>
