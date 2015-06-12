@@ -21,8 +21,8 @@
 			alert("alert1");
 			$scope.submit = function() {
 				alert("alert2");
-				//var serverUrl = "http://rest-angular989.mybluemix.net/";
-				var serverUrl= "localhost:8080";
+				var serverUrl = "http://rest-angular9892.mybluemix.net/";
+				//var serverUrl= "localhost:8080";
 				$http.get(encodeURI(serverUrl + "?userinput=" + $scope.userinput))
 						.success(function(response, data, status) {
 							$scope.uppercased = response;
