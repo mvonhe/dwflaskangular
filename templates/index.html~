@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!--dynamic version-->
 	<head ng-app "myapp">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
 	</head>
