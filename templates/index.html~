@@ -16,12 +16,12 @@
 		</div>
 		
 		<script>
-		alert("alert0");
+		//alert("alert0");
 		function customersController($scope, $http) {
 			alert("alert1");
 			$scope.submit = function() {
 				alert("alert2");
-				//var serverUrl = "http://hello-py-flask.mybluemix.net/";
+				//var serverUrl = "http://rest-angular989.mybluemix.net/";
 				var serverUrl= "localhost:8080";
 				$http.get(encodeURI(serverUrl + "?userinput=" + $scope.userinput))
 						.success(function(response, data, status) {
