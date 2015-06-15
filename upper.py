@@ -11,8 +11,10 @@ else:
 
 @app.route('/', methods=['GET'])
 def display_template():
-	if "userinput" in request.args:
-		return request.args["userinput"].upper()
+	if "lower" in request.args:
+		return request.args["lower"].lower()	
+	elif "upper" in request.args:
+		return request.args["upper"].upper()
 	else: 			
 		return render_template('index.html')	
 
